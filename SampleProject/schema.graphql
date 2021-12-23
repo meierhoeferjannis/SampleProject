@@ -1,0 +1,1444 @@
+﻿schema {
+  query: Query
+  mutation: Mutation
+}
+
+input ExerciseCategoryQueryInput {
+  _partition_lte: String
+  name_gt: String
+  _id_ne: ObjectId
+  _id_lte: ObjectId
+  _partition_exists: Boolean
+  _partition_lt: String
+  _partition: String
+  name_gte: String
+  AND: [ExerciseCategoryQueryInput!]
+  name_nin: [String]
+  OR: [ExerciseCategoryQueryInput!]
+  _partition_nin: [String]
+  name_lt: String
+  _id_gte: ObjectId
+  _id_lt: ObjectId
+  _partition_gt: String
+  _id_gt: ObjectId
+  name_ne: String
+  name: String
+  name_in: [String]
+  _id_nin: [ObjectId]
+  _id_exists: Boolean
+  _partition_in: [String]
+  name_lte: String
+  _partition_gte: String
+  _partition_ne: String
+  _id: ObjectId
+  name_exists: Boolean
+  _id_in: [ObjectId]
+}
+
+enum ExerciseCategorySortByInput {
+  _ID_ASC
+  _ID_DESC
+  _PARTITION_ASC
+  _PARTITION_DESC
+  NAME_ASC
+  NAME_DESC
+}
+
+type ExerciseForDay {
+  _id: ObjectId!
+  calculationMaximum: Float!
+  connectionId: ObjectId!
+  exercise: ObjectId
+  isFinished: Boolean!
+  notes: String
+  number: Int!
+  seperateSets: [Set]
+  unitDescription: String
+  userCalculationMaximum: Float
+}
+
+type Set {
+  _id: ObjectId!
+  connectionId: ObjectId!
+  estOneRepMax: Float
+  istRir: Float!
+  number: Int!
+  path: String
+  percentage: Float
+  progressionPercent: Float!
+  reps: Int!
+  sollRir: Float!
+  startPercent: Float!
+  usesPercent: Boolean!
+  usesRir: Boolean!
+  videoFileName: String
+  weight: Float!
+  weightRangeBottom: Float!
+  weightRangeTop: Float!
+}
+
+enum UserSortByInput {
+  _ID_ASC
+  _ID_DESC
+  _PARTITION_ASC
+  _PARTITION_DESC
+  EMAIL_ASC
+  EMAIL_DESC
+  TRAINEEID_ASC
+  TRAINEEID_DESC
+}
+
+type ExerciseCategory {
+  _id: ObjectId!
+  _partition: String!
+  name: String
+}
+
+input TraineeQueryInput {
+  bodyWeight_gte: Int
+  AND: [TraineeQueryInput!]
+  height_nin: [Int]
+  _partition_in: [String]
+  strengthValues_in: [StrengthValueQueryInput]
+  _id_in: [ObjectId]
+  weightRangeCalculationDescription_exists: Boolean
+  OR: [TraineeQueryInput!]
+  regenerationDescription_gte: String
+  lastName_lt: String
+  weightRangeCalculationDescription_lte: String
+  bodyWeight_in: [Int]
+  genderDescription_gte: String
+  genderDescription_lte: String
+  genderDescription_exists: Boolean
+  currentZyklus: ZykluQueryInput
+  stressDescription_nin: [String]
+  dietDescription_ne: String
+  bodyWeight_lte: Int
+  dietDescription: String
+  regenerationDescription_exists: Boolean
+  genderDescription_lt: String
+  safetyFactor: Float
+  _id_lte: ObjectId
+  roundingFactor_in: [Float]
+  stressDescription: String
+  _id_gt: ObjectId
+  safetyFactor_lte: Float
+  roundingFactor_nin: [Float]
+  bodyWeight_nin: [Int]
+  height_gt: Int
+  _id_gte: ObjectId
+  age_gte: Int
+  age_gt: Int
+  _partition_gt: String
+  safetyFactor_gte: Float
+  safetyFactor_in: [Float]
+  experienceDescription_lte: String
+  safetyFactor_lt: Float
+  stressDescription_ne: String
+  genderDescription_nin: [String]
+  age: Int
+  _id_nin: [ObjectId]
+  sleepDescription_exists: Boolean
+  _partition_ne: String
+  bodyWeight_ne: Int
+  roundingFactor_exists: Boolean
+  genderDescription_gt: String
+  regenerationDescription_lte: String
+  firstname_gt: String
+  dietDescription_exists: Boolean
+  regenerationDescription_ne: String
+  experienceDescription: String
+  factorForWeightRange_nin: [Float]
+  height: Int
+  strengthValues_nin: [StrengthValueQueryInput]
+  experienceDescription_in: [String]
+  dietDescription_gt: String
+  _id_lt: ObjectId
+  factorForWeightRange_ne: Float
+  regenerationDescription_gt: String
+  height_lt: Int
+  weightRangeCalculationDescription_lt: String
+  _id: ObjectId
+  weightRangeCalculationDescription: String
+  firstname_lt: String
+  strengthValues_exists: Boolean
+  lastName_ne: String
+  roundingFactor_gt: Float
+  _partition_gte: String
+  weightRangeCalculationDescription_in: [String]
+  _id_exists: Boolean
+  safetyFactor_nin: [Float]
+  sleepDescription_ne: String
+  _id_ne: ObjectId
+  age_lte: Int
+  roundingFactor_lt: Float
+  age_nin: [Int]
+  stressDescription_gte: String
+  weightRangeCalculationDescription_nin: [String]
+  roundingFactor_ne: Float
+  stressDescription_lte: String
+  safetyFactor_exists: Boolean
+  roundingFactor_gte: Float
+  dietDescription_in: [String]
+  lastName_gt: String
+  firstname_nin: [String]
+  bodyWeight_gt: Int
+  stressDescription_exists: Boolean
+  safetyFactor_ne: Float
+  lastName_in: [String]
+  _partition_exists: Boolean
+  age_ne: Int
+  lastName_lte: String
+  sleepDescription_nin: [String]
+  age_in: [Int]
+  firstname_exists: Boolean
+  experienceDescription_exists: Boolean
+  isDoping_ne: Boolean
+  height_in: [Int]
+  height_lte: Int
+  genderDescription_ne: String
+  factorForWeightRange_in: [Float]
+  lastName_exists: Boolean
+  currentZyklus_exists: Boolean
+  isDoping: Boolean
+  firstname_lte: String
+  dietDescription_lte: String
+  weightRangeCalculationDescription_ne: String
+  experienceDescription_nin: [String]
+  firstname_ne: String
+  sleepDescription_gt: String
+  roundingFactor_lte: Float
+  stressDescription_lt: String
+  sleepDescription_gte: String
+  bodyWeight_exists: Boolean
+  experienceDescription_ne: String
+  sleepDescription_lte: String
+  dietDescription_lt: String
+  factorForWeightRange_exists: Boolean
+  lastName_gte: String
+  regenerationDescription_nin: [String]
+  age_lt: Int
+  _partition_lte: String
+  bodyWeight_lt: Int
+  regenerationDescription_in: [String]
+  height_ne: Int
+  height_exists: Boolean
+  firstname_in: [String]
+  _partition_nin: [String]
+  firstname_gte: String
+  genderDescription: String
+  sleepDescription: String
+  lastName_nin: [String]
+  dietDescription_nin: [String]
+  height_gte: Int
+  _partition: String
+  regenerationDescription_lt: String
+  sleepDescription_in: [String]
+  factorForWeightRange_gte: Float
+  safetyFactor_gt: Float
+  weightRangeCalculationDescription_gte: String
+  isDoping_exists: Boolean
+  bodyWeight: Int
+  factorForWeightRange_gt: Float
+  roundingFactor: Float
+  factorForWeightRange_lt: Float
+  experienceDescription_gt: String
+  regenerationDescription: String
+  strengthValues: [StrengthValueQueryInput]
+  dietDescription_gte: String
+  stressDescription_gt: String
+  firstname: String
+  age_exists: Boolean
+  lastName: String
+  stressDescription_in: [String]
+  weightRangeCalculationDescription_gt: String
+  _partition_lt: String
+  sleepDescription_lt: String
+  experienceDescription_lt: String
+  factorForWeightRange: Float
+  factorForWeightRange_lte: Float
+  genderDescription_in: [String]
+  experienceDescription_gte: String
+}
+
+type InsertManyPayload {
+  insertedIds: [ObjectId]!
+}
+
+input TrainingsDayQueryInput {
+  AND: [TrainingsDayQueryInput!]
+  number_gte: Int
+  fatigueRateDescription: String
+  notes: String
+  _id_in: [ObjectId]
+  fatigueRateDescription_ne: String
+  notes_exists: Boolean
+  connectionId_gt: ObjectId
+  connectionId_gte: ObjectId
+  fatigueRateDescription_gte: String
+  number_lt: Int
+  fatigueRateDescription_lt: String
+  notes_in: [String]
+  notes_lt: String
+  _id_lte: ObjectId
+  _id: ObjectId
+  exerciseForDay_in: [ExerciseForDayQueryInput]
+  connectionId_ne: ObjectId
+  number_gt: Int
+  connectionId_lte: ObjectId
+  connectionId_lt: ObjectId
+  _id_exists: Boolean
+  fatigueRateDescription_gt: String
+  number_exists: Boolean
+  exerciseForDay: [ExerciseForDayQueryInput]
+  notes_nin: [String]
+  number_in: [Int]
+  number: Int
+  isFinished: Boolean
+  number_lte: Int
+  connectionId: ObjectId
+  number_ne: Int
+  fatigueRateDescription_in: [String]
+  _id_nin: [ObjectId]
+  fatigueRateDescription_lte: String
+  isFinished_ne: Boolean
+  isFinished_exists: Boolean
+  number_nin: [Int]
+  connectionId_nin: [ObjectId]
+  fatigueRateDescription_nin: [String]
+  _id_gte: ObjectId
+  connectionId_exists: Boolean
+  notes_ne: String
+  OR: [TrainingsDayQueryInput!]
+  _id_ne: ObjectId
+  _id_lt: ObjectId
+  fatigueRateDescription_exists: Boolean
+  _id_gt: ObjectId
+  notes_lte: String
+  notes_gte: String
+  exerciseForDay_nin: [ExerciseForDayQueryInput]
+  notes_gt: String
+  connectionId_in: [ObjectId]
+  exerciseForDay_exists: Boolean
+}
+
+type User {
+  _id: String!
+  _partition: String!
+  email: String
+  isCoach: Boolean!
+  traineeId: ObjectId!
+  trainees: [ObjectId]
+}
+
+input LoadFactorQueryInput {
+  muscleGroupDescription_nin: [String]
+  load_nin: [Float]
+  _id_gte: ObjectId
+  load_gte: Float
+  load_ne: Float
+  load_in: [Float]
+  muscleGroupDescription_ne: String
+  muscleGroupDescription_lte: String
+  _id_in: [ObjectId]
+  load: Float
+  load_exists: Boolean
+  muscleGroupDescription: String
+  _id: ObjectId
+  muscleGroupDescription_gte: String
+  muscleGroupDescription_lt: String
+  muscleGroupDescription_gt: String
+  OR: [LoadFactorQueryInput!]
+  _id_ne: ObjectId
+  _id_lte: ObjectId
+  _id_exists: Boolean
+  _id_nin: [ObjectId]
+  _id_lt: ObjectId
+  load_lte: Float
+  load_lt: Float
+  muscleGroupDescription_in: [String]
+  _id_gt: ObjectId
+  AND: [LoadFactorQueryInput!]
+  muscleGroupDescription_exists: Boolean
+  load_gt: Float
+}
+
+input ExerciseForDayUpdateInput {
+  isFinished_unset: Boolean
+  calculationMaximum_unset: Boolean
+  number_unset: Boolean
+  userCalculationMaximum: Float
+  unitDescription_unset: Boolean
+  isFinished: Boolean
+  connectionId: ObjectId
+  seperateSets: [SetUpdateInput]
+  _id_unset: Boolean
+  notes: String
+  calculationMaximum_inc: Float
+  userCalculationMaximum_unset: Boolean
+  unitDescription: String
+  connectionId_unset: Boolean
+  userCalculationMaximum_inc: Float
+  notes_unset: Boolean
+  number: Int
+  seperateSets_unset: Boolean
+  calculationMaximum: Float
+  exercise_unset: Boolean
+  number_inc: Int
+  exercise: ObjectId
+  _id: ObjectId
+}
+
+input TrainingsDayInsertInput {
+  exerciseForDay: [ExerciseForDayInsertInput]
+  notes: String
+  number: Int!
+  isFinished: Boolean!
+  _id: ObjectId
+  connectionId: ObjectId!
+  fatigueRateDescription: String
+}
+
+input ExerciseForDayQueryInput {
+  connectionId_lt: ObjectId
+  userCalculationMaximum_ne: Float
+  isFinished_exists: Boolean
+  connectionId_lte: ObjectId
+  _id_lt: ObjectId
+  connectionId_exists: Boolean
+  _id_ne: ObjectId
+  seperateSets: [SetQueryInput]
+  number: Int
+  unitDescription_gte: String
+  number_lt: Int
+  calculationMaximum_lte: Float
+  notes_gt: String
+  exercise: ObjectId
+  unitDescription_in: [String]
+  seperateSets_in: [SetQueryInput]
+  notes_exists: Boolean
+  calculationMaximum_lt: Float
+  calculationMaximum_gt: Float
+  userCalculationMaximum_exists: Boolean
+  exercise_in: [ObjectId]
+  number_nin: [Int]
+  exercise_gte: ObjectId
+  exercise_nin: [ObjectId]
+  notes: String
+  number_gte: Int
+  _id_gte: ObjectId
+  number_lte: Int
+  connectionId_ne: ObjectId
+  calculationMaximum_ne: Float
+  userCalculationMaximum_gt: Float
+  notes_lte: String
+  _id_nin: [ObjectId]
+  OR: [ExerciseForDayQueryInput!]
+  connectionId_gte: ObjectId
+  number_exists: Boolean
+  connectionId: ObjectId
+  calculationMaximum_gte: Float
+  exercise_ne: ObjectId
+  seperateSets_exists: Boolean
+  calculationMaximum_exists: Boolean
+  number_gt: Int
+  userCalculationMaximum_nin: [Float]
+  _id_gt: ObjectId
+  _id_lte: ObjectId
+  exercise_gt: ObjectId
+  calculationMaximum: Float
+  connectionId_gt: ObjectId
+  userCalculationMaximum_lt: Float
+  number_in: [Int]
+  _id: ObjectId
+  AND: [ExerciseForDayQueryInput!]
+  number_ne: Int
+  notes_gte: String
+  unitDescription_ne: String
+  userCalculationMaximum_in: [Float]
+  exercise_exists: Boolean
+  unitDescription_lt: String
+  connectionId_in: [ObjectId]
+  userCalculationMaximum_gte: Float
+  calculationMaximum_in: [Float]
+  calculationMaximum_nin: [Float]
+  connectionId_nin: [ObjectId]
+  notes_nin: [String]
+  notes_ne: String
+  notes_in: [String]
+  exercise_lte: ObjectId
+  exercise_lt: ObjectId
+  unitDescription_nin: [String]
+  _id_in: [ObjectId]
+  unitDescription_gt: String
+  isFinished_ne: Boolean
+  userCalculationMaximum_lte: Float
+  userCalculationMaximum: Float
+  isFinished: Boolean
+  seperateSets_nin: [SetQueryInput]
+  unitDescription_exists: Boolean
+  unitDescription_lte: String
+  unitDescription: String
+  _id_exists: Boolean
+  notes_lt: String
+}
+
+type TrainingsDay {
+  _id: ObjectId!
+  connectionId: ObjectId!
+  exerciseForDay: [ExerciseForDay]
+  fatigueRateDescription: String
+  isFinished: Boolean!
+  notes: String
+  number: Int!
+}
+
+enum ExerciseSortByInput {
+  NAME_ASC
+  NAME_DESC
+  CALCULATIONINPERCENT_ASC
+  CALCULATIONINPERCENT_DESC
+  CATEGORY_ASC
+  _PARTITION_DESC
+  _ID_DESC
+  _PARTITION_ASC
+  CATEGORY_DESC
+  _ID_ASC
+}
+
+type LoadFactor {
+  _id: ObjectId!
+  load: Float!
+  muscleGroupDescription: String
+}
+
+input TraineeInsertInput {
+  lastName: String
+  stressDescription: String
+  roundingFactor: Float!
+  sleepDescription: String
+  strengthValues: [StrengthValueInsertInput]
+  age: Int!
+  weightRangeCalculationDescription: String
+  bodyWeight: Int!
+  dietDescription: String
+  _id: ObjectId
+  firstname: String
+  factorForWeightRange: Float!
+  regenerationDescription: String
+  isDoping: Boolean!
+  currentZyklus: TraineeCurrentZyklusRelationInput
+  genderDescription: String
+  height: Int!
+  _partition: String!
+  experienceDescription: String
+  safetyFactor: Float!
+}
+
+input TraineeCurrentZyklusRelationInput {
+  create: ZykluInsertInput
+  link: ObjectId
+}
+
+input ZykluInsertInput {
+  isTemplate: Boolean!
+  _id: ObjectId
+  _partition: String!
+  zyklusTypeDescription: String
+  weeks: [WeekInsertInput]
+  name: String
+  started: DateTime
+  finished: DateTime
+}
+
+input SetUpdateInput {
+  weightRangeTop_inc: Float
+  percentage_inc: Float
+  estOneRepMax: Float
+  percentage_unset: Boolean
+  path: String
+  weight_unset: Boolean
+  sollRir_unset: Boolean
+  reps_unset: Boolean
+  istRir: Float
+  startPercent_unset: Boolean
+  istRir_unset: Boolean
+  _id_unset: Boolean
+  connectionId_unset: Boolean
+  weightRangeTop_unset: Boolean
+  sollRir_inc: Float
+  path_unset: Boolean
+  videoFileName: String
+  reps: Int
+  _id: ObjectId
+  estOneRepMax_unset: Boolean
+  startPercent: Float
+  weightRangeTop: Float
+  estOneRepMax_inc: Float
+  weight_inc: Float
+  usesRir_unset: Boolean
+  percentage: Float
+  sollRir: Float
+  usesPercent_unset: Boolean
+  progressionPercent: Float
+  weightRangeBottom_inc: Float
+  progressionPercent_inc: Float
+  connectionId: ObjectId
+  weightRangeBottom_unset: Boolean
+  number_unset: Boolean
+  usesPercent: Boolean
+  progressionPercent_unset: Boolean
+  istRir_inc: Float
+  number_inc: Int
+  weightRangeBottom: Float
+  videoFileName_unset: Boolean
+  usesRir: Boolean
+  startPercent_inc: Float
+  reps_inc: Int
+  number: Int
+  weight: Float
+}
+
+input ZykluQueryInput {
+  zyklusTypeDescription: String
+  _partition_lte: String
+  name_nin: [String]
+  name: String
+  weeks: [WeekQueryInput]
+  zyklusTypeDescription_lte: String
+  _id_lt: ObjectId
+  finished_lt: DateTime
+  name_lt: String
+  finished_ne: DateTime
+  isTemplate: Boolean
+  isTemplate_ne: Boolean
+  _id_ne: ObjectId
+  _partition_gte: String
+  weeks_exists: Boolean
+  weeks_in: [WeekQueryInput]
+  name_ne: String
+  started_gt: DateTime
+  started_in: [DateTime]
+  finished_in: [DateTime]
+  _partition: String
+  started: DateTime
+  finished_lte: DateTime
+  finished_nin: [DateTime]
+  started_lt: DateTime
+  zyklusTypeDescription_lt: String
+  started_nin: [DateTime]
+  started_ne: DateTime
+  zyklusTypeDescription_exists: Boolean
+  started_lte: DateTime
+  zyklusTypeDescription_gte: String
+  finished: DateTime
+  _partition_exists: Boolean
+  _partition_lt: String
+  name_gt: String
+  _partition_ne: String
+  _id_gt: ObjectId
+  isTemplate_exists: Boolean
+  zyklusTypeDescription_gt: String
+  finished_exists: Boolean
+  zyklusTypeDescription_nin: [String]
+  finished_gt: DateTime
+  started_gte: DateTime
+  _id_in: [ObjectId]
+  name_lte: String
+  _id: ObjectId
+  name_gte: String
+  _partition_nin: [String]
+  OR: [ZykluQueryInput!]
+  _id_gte: ObjectId
+  zyklusTypeDescription_ne: String
+  _id_lte: ObjectId
+  _partition_in: [String]
+  weeks_nin: [WeekQueryInput]
+  AND: [ZykluQueryInput!]
+  started_exists: Boolean
+  _id_nin: [ObjectId]
+  _id_exists: Boolean
+  name_exists: Boolean
+  finished_gte: DateTime
+  zyklusTypeDescription_in: [String]
+  name_in: [String]
+  _partition_gt: String
+}
+
+input WeekQueryInput {
+  days: [TrainingsDayQueryInput]
+  OR: [WeekQueryInput!]
+  days_nin: [TrainingsDayQueryInput]
+  _id: ObjectId
+  isFinished: Boolean
+  number_lt: Int
+  number_gte: Int
+  _id_lt: ObjectId
+  isFinished_exists: Boolean
+  _id_in: [ObjectId]
+  number: Int
+  _id_gt: ObjectId
+  number_ne: Int
+  _id_gte: ObjectId
+  isFinished_ne: Boolean
+  days_in: [TrainingsDayQueryInput]
+  number_exists: Boolean
+  _id_exists: Boolean
+  days_exists: Boolean
+  number_nin: [Int]
+  AND: [WeekQueryInput!]
+  _id_nin: [ObjectId]
+  number_lte: Int
+  number_in: [Int]
+  _id_lte: ObjectId
+  _id_ne: ObjectId
+  number_gt: Int
+}
+
+type DeleteManyPayload {
+  deletedCount: Int!
+}
+
+input ZykluUpdateInput {
+  zyklusTypeDescription: String
+  isTemplate: Boolean
+  isTemplate_unset: Boolean
+  weeks: [WeekUpdateInput]
+  started: DateTime
+  _partition_unset: Boolean
+  weeks_unset: Boolean
+  started_unset: Boolean
+  name_unset: Boolean
+  name: String
+  _partition: String
+  _id: ObjectId
+  _id_unset: Boolean
+  finished: DateTime
+  zyklusTypeDescription_unset: Boolean
+  finished_unset: Boolean
+}
+
+type Zyklu {
+  _id: ObjectId!
+  _partition: String!
+  finished: DateTime
+  isTemplate: Boolean!
+  name: String
+  started: DateTime
+  weeks: [Week]
+  zyklusTypeDescription: String
+}
+
+input UserInsertInput {
+  trainees: [ObjectId]
+  _id: String
+  _partition: String!
+  email: String
+  traineeId: ObjectId!
+  isCoach: Boolean!
+}
+
+input SetInsertInput {
+  percentage: Float
+  weightRangeBottom: Float!
+  _id: ObjectId
+  startPercent: Float!
+  weight: Float!
+  number: Int!
+  usesPercent: Boolean!
+  progressionPercent: Float!
+  sollRir: Float!
+  usesRir: Boolean!
+  weightRangeTop: Float!
+  estOneRepMax: Float
+  videoFileName: String
+  reps: Int!
+  istRir: Float!
+  connectionId: ObjectId!
+  path: String
+}
+
+input UserUpdateInput {
+  _id_unset: Boolean
+  email: String
+  traineeId: ObjectId
+  _partition: String
+  _partition_unset: Boolean
+  trainees_unset: Boolean
+  traineeId_unset: Boolean
+  isCoach_unset: Boolean
+  isCoach: Boolean
+  _id: String
+  email_unset: Boolean
+  trainees: [ObjectId]
+}
+
+input WeekUpdateInput {
+  _id_unset: Boolean
+  number_unset: Boolean
+  days: [TrainingsDayUpdateInput]
+  number_inc: Int
+  isFinished_unset: Boolean
+  number: Int
+  isFinished: Boolean
+  _id: ObjectId
+  days_unset: Boolean
+}
+
+input UserQueryInput {
+  email_lte: String
+  trainees_exists: Boolean
+  _id: String
+  email_gte: String
+  _id_lt: String
+  traineeId_nin: [ObjectId]
+  _id_gt: String
+  _partition_nin: [String]
+  _partition_gte: String
+  traineeId: ObjectId
+  traineeId_lte: ObjectId
+  isCoach_ne: Boolean
+  isCoach: Boolean
+  trainees_nin: [ObjectId]
+  email_in: [String]
+  _id_exists: Boolean
+  traineeId_gte: ObjectId
+  isCoach_exists: Boolean
+  AND: [UserQueryInput!]
+  _partition_gt: String
+  _partition_lt: String
+  _id_lte: String
+  OR: [UserQueryInput!]
+  trainees: [ObjectId]
+  trainees_in: [ObjectId]
+  _id_in: [String]
+  traineeId_lt: ObjectId
+  _partition_lte: String
+  _id_nin: [String]
+  email_lt: String
+  traineeId_gt: ObjectId
+  traineeId_in: [ObjectId]
+  email_nin: [String]
+  traineeId_exists: Boolean
+  _partition_ne: String
+  email_gt: String
+  _id_ne: String
+  email_ne: String
+  email: String
+  _partition_in: [String]
+  _id_gte: String
+  traineeId_ne: ObjectId
+  email_exists: Boolean
+  _partition: String
+  _partition_exists: Boolean
+}
+
+input StrengthValueUpdateInput {
+  oneRm_inc: Float
+  weight_unset: Boolean
+  calculationMaximum: Float
+  _id: ObjectId
+  isTotalRelevant_unset: Boolean
+  isMainLift: Boolean
+  category_unset: Boolean
+  oneRm: Float
+  calculationMaximum_unset: Boolean
+  oneRm_unset: Boolean
+  reps_unset: Boolean
+  _id_unset: Boolean
+  isTotalRelevant: Boolean
+  category: ObjectId
+  isMainLift_unset: Boolean
+  weight_inc: Float
+  calculationMaximum_inc: Float
+  reps: Int
+  reps_inc: Int
+  weight: Float
+}
+
+input SetQueryInput {
+  istRir_nin: [Float]
+  sollRir: Float
+  estOneRepMax_in: [Float]
+  reps_in: [Int]
+  videoFileName_lt: String
+  progressionPercent_in: [Float]
+  weightRangeTop: Float
+  number_exists: Boolean
+  weightRangeBottom_in: [Float]
+  startPercent_ne: Float
+  reps_lte: Int
+  estOneRepMax_nin: [Float]
+  weight_nin: [Float]
+  sollRir_lte: Float
+  istRir_exists: Boolean
+  estOneRepMax_gt: Float
+  _id_ne: ObjectId
+  sollRir_exists: Boolean
+  progressionPercent: Float
+  weightRangeTop_gt: Float
+  usesPercent_ne: Boolean
+  path: String
+  connectionId_ne: ObjectId
+  _id_in: [ObjectId]
+  progressionPercent_nin: [Float]
+  AND: [SetQueryInput!]
+  estOneRepMax_lte: Float
+  videoFileName_lte: String
+  istRir_gte: Float
+  estOneRepMax_gte: Float
+  path_lt: String
+  estOneRepMax_ne: Float
+  reps: Int
+  _id_lte: ObjectId
+  weightRangeTop_lt: Float
+  weightRangeBottom_nin: [Float]
+  usesRir_exists: Boolean
+  connectionId_lt: ObjectId
+  videoFileName_in: [String]
+  weightRangeTop_gte: Float
+  connectionId_gte: ObjectId
+  startPercent_exists: Boolean
+  path_exists: Boolean
+  weightRangeBottom_exists: Boolean
+  progressionPercent_ne: Float
+  percentage: Float
+  reps_gte: Int
+  weightRangeTop_in: [Float]
+  startPercent_lte: Float
+  usesPercent: Boolean
+  progressionPercent_exists: Boolean
+  startPercent_lt: Float
+  OR: [SetQueryInput!]
+  weight_gt: Float
+  weight_lt: Float
+  reps_exists: Boolean
+  weight_in: [Float]
+  usesRir: Boolean
+  number_gte: Int
+  connectionId: ObjectId
+  sollRir_gt: Float
+  weightRangeBottom_lt: Float
+  _id: ObjectId
+  videoFileName_ne: String
+  path_lte: String
+  connectionId_nin: [ObjectId]
+  percentage_nin: [Float]
+  weightRangeBottom_gt: Float
+  sollRir_ne: Float
+  number_ne: Int
+  videoFileName: String
+  startPercent: Float
+  path_in: [String]
+  _id_lt: ObjectId
+  startPercent_gte: Float
+  weightRangeTop_lte: Float
+  percentage_gt: Float
+  istRir_in: [Float]
+  _id_nin: [ObjectId]
+  weight: Float
+  weightRangeBottom_ne: Float
+  istRir: Float
+  weightRangeTop_nin: [Float]
+  progressionPercent_lt: Float
+  path_ne: String
+  videoFileName_gt: String
+  estOneRepMax_lt: Float
+  reps_lt: Int
+  weight_gte: Float
+  percentage_exists: Boolean
+  sollRir_gte: Float
+  connectionId_in: [ObjectId]
+  connectionId_lte: ObjectId
+  _id_exists: Boolean
+  weightRangeTop_exists: Boolean
+  videoFileName_nin: [String]
+  weightRangeBottom_lte: Float
+  percentage_gte: Float
+  weightRangeTop_ne: Float
+  sollRir_nin: [Float]
+  weight_lte: Float
+  reps_ne: Int
+  number: Int
+  progressionPercent_lte: Float
+  path_gte: String
+  weight_ne: Float
+  percentage_lte: Float
+  istRir_gt: Float
+  number_nin: [Int]
+  weight_exists: Boolean
+  istRir_ne: Float
+  startPercent_gt: Float
+  percentage_lt: Float
+  connectionId_exists: Boolean
+  _id_gte: ObjectId
+  sollRir_in: [Float]
+  videoFileName_exists: Boolean
+  connectionId_gt: ObjectId
+  weightRangeBottom_gte: Float
+  startPercent_nin: [Float]
+  istRir_lte: Float
+  number_gt: Int
+  path_gt: String
+  percentage_in: [Float]
+  progressionPercent_gt: Float
+  sollRir_lt: Float
+  reps_gt: Int
+  number_in: [Int]
+  weightRangeBottom: Float
+  number_lt: Int
+  istRir_lt: Float
+  progressionPercent_gte: Float
+  videoFileName_gte: String
+  percentage_ne: Float
+  estOneRepMax_exists: Boolean
+  reps_nin: [Int]
+  estOneRepMax: Float
+  number_lte: Int
+  path_nin: [String]
+  usesRir_ne: Boolean
+  usesPercent_exists: Boolean
+  startPercent_in: [Float]
+  _id_gt: ObjectId
+}
+
+type Week {
+  _id: ObjectId!
+  days: [TrainingsDay]
+  isFinished: Boolean!
+  number: Int!
+}
+
+input ExerciseForDayInsertInput {
+  connectionId: ObjectId!
+  unitDescription: String
+  notes: String
+  isFinished: Boolean!
+  _id: ObjectId
+  exercise: ObjectId
+  calculationMaximum: Float!
+  number: Int!
+  seperateSets: [SetInsertInput]
+  userCalculationMaximum: Float
+}
+
+type Query {
+  exercise(query: ExerciseQueryInput): Exercise
+  exerciseCategories(limit: Int = 100 sortBy: ExerciseCategorySortByInput query: ExerciseCategoryQueryInput): [ExerciseCategory]!
+  exerciseCategory(query: ExerciseCategoryQueryInput): ExerciseCategory
+  exercises(query: ExerciseQueryInput limit: Int = 100 sortBy: ExerciseSortByInput): [Exercise]!
+  trainee(query: TraineeQueryInput): Trainee
+  trainees(query: TraineeQueryInput limit: Int = 100 sortBy: TraineeSortByInput): [Trainee]!
+  user(query: UserQueryInput): User
+  users(query: UserQueryInput limit: Int = 100 sortBy: UserSortByInput): [User]!
+  zyklu(query: ZykluQueryInput): Zyklu
+  zyklus(limit: Int = 100 sortBy: ZykluSortByInput query: ZykluQueryInput): [Zyklu]!
+}
+
+input ExerciseQueryInput {
+  name_gte: String
+  loadfactors_exists: Boolean
+  category: ExerciseCategoryQueryInput
+  loadfactors_in: [LoadFactorQueryInput]
+  _id_in: [ObjectId]
+  name: String
+  _partition_in: [String]
+  loadfactors: [LoadFactorQueryInput]
+  name_lte: String
+  _partition_ne: String
+  _partition_gt: String
+  name_exists: Boolean
+  _partition_lt: String
+  calculationInPercent_lte: Float
+  category_exists: Boolean
+  _id: ObjectId
+  calculationInPercent_lt: Float
+  name_nin: [String]
+  name_lt: String
+  _id_lte: ObjectId
+  calculationInPercent_nin: [Float]
+  OR: [ExerciseQueryInput!]
+  _partition_gte: String
+  calculationInPercent_ne: Float
+  AND: [ExerciseQueryInput!]
+  _partition: String
+  _id_nin: [ObjectId]
+  _id_exists: Boolean
+  _id_gte: ObjectId
+  _partition_exists: Boolean
+  name_ne: String
+  _id_ne: ObjectId
+  calculationInPercent_gt: Float
+  calculationInPercent_exists: Boolean
+  loadfactors_nin: [LoadFactorQueryInput]
+  name_gt: String
+  name_in: [String]
+  _id_lt: ObjectId
+  _id_gt: ObjectId
+  calculationInPercent: Float
+  calculationInPercent_in: [Float]
+  calculationInPercent_gte: Float
+  _partition_lte: String
+  _partition_nin: [String]
+}
+
+input StrengthValueQueryInput {
+  category: ObjectId
+  reps_exists: Boolean
+  weight_gt: Float
+  _id_ne: ObjectId
+  isMainLift: Boolean
+  weight_nin: [Float]
+  category_exists: Boolean
+  calculationMaximum_gte: Float
+  reps_lte: Int
+  category_lte: ObjectId
+  isMainLift_exists: Boolean
+  _id_in: [ObjectId]
+  reps_gte: Int
+  calculationMaximum_in: [Float]
+  isTotalRelevant_exists: Boolean
+  _id: ObjectId
+  calculationMaximum: Float
+  OR: [StrengthValueQueryInput!]
+  _id_gte: ObjectId
+  oneRm_gte: Float
+  category_gt: ObjectId
+  oneRm_lte: Float
+  weight_gte: Float
+  oneRm_gt: Float
+  _id_lte: ObjectId
+  oneRm_in: [Float]
+  category_nin: [ObjectId]
+  weight_in: [Float]
+  calculationMaximum_nin: [Float]
+  category_gte: ObjectId
+  oneRm_lt: Float
+  oneRm_exists: Boolean
+  category_ne: ObjectId
+  oneRm: Float
+  _id_gt: ObjectId
+  isTotalRelevant: Boolean
+  calculationMaximum_exists: Boolean
+  category_in: [ObjectId]
+  weight_ne: Float
+  calculationMaximum_lt: Float
+  reps: Int
+  _id_nin: [ObjectId]
+  weight: Float
+  _id_exists: Boolean
+  weight_lte: Float
+  weight_exists: Boolean
+  calculationMaximum_ne: Float
+  _id_lt: ObjectId
+  reps_nin: [Int]
+  reps_gt: Int
+  calculationMaximum_gt: Float
+  AND: [StrengthValueQueryInput!]
+  oneRm_ne: Float
+  isTotalRelevant_ne: Boolean
+  isMainLift_ne: Boolean
+  reps_ne: Int
+  oneRm_nin: [Float]
+  reps_in: [Int]
+  weight_lt: Float
+  calculationMaximum_lte: Float
+  reps_lt: Int
+  category_lt: ObjectId
+}
+
+type Trainee {
+  _id: ObjectId!
+  _partition: String!
+  age: Int!
+  bodyWeight: Int!
+  currentZyklus: Zyklu
+  dietDescription: String
+  experienceDescription: String
+  factorForWeightRange: Float!
+  firstname: String
+  genderDescription: String
+  height: Int!
+  isDoping: Boolean!
+  lastName: String
+  regenerationDescription: String
+  roundingFactor: Float!
+  safetyFactor: Float!
+  sleepDescription: String
+  strengthValues: [StrengthValue]
+  stressDescription: String
+  weightRangeCalculationDescription: String
+}
+
+input TraineeUpdateInput {
+  strengthValues_unset: Boolean
+  genderDescription_unset: Boolean
+  dietDescription_unset: Boolean
+  experienceDescription_unset: Boolean
+  factorForWeightRange_inc: Float
+  strengthValues: [StrengthValueUpdateInput]
+  safetyFactor: Float
+  age_inc: Int
+  height: Int
+  height_inc: Int
+  roundingFactor_inc: Float
+  firstname: String
+  regenerationDescription: String
+  weightRangeCalculationDescription: String
+  _id: ObjectId
+  stressDescription: String
+  age: Int
+  isDoping_unset: Boolean
+  genderDescription: String
+  dietDescription: String
+  bodyWeight: Int
+  bodyWeight_unset: Boolean
+  bodyWeight_inc: Int
+  sleepDescription: String
+  factorForWeightRange: Float
+  regenerationDescription_unset: Boolean
+  firstname_unset: Boolean
+  weightRangeCalculationDescription_unset: Boolean
+  sleepDescription_unset: Boolean
+  lastName_unset: Boolean
+  _id_unset: Boolean
+  lastName: String
+  experienceDescription: String
+  safetyFactor_inc: Float
+  currentZyklus: TraineeCurrentZyklusRelationInput
+  roundingFactor_unset: Boolean
+  stressDescription_unset: Boolean
+  roundingFactor: Float
+  safetyFactor_unset: Boolean
+  height_unset: Boolean
+  age_unset: Boolean
+  factorForWeightRange_unset: Boolean
+  _partition_unset: Boolean
+  _partition: String
+  isDoping: Boolean
+  currentZyklus_unset: Boolean
+}
+
+input LoadFactorInsertInput {
+  _id: ObjectId
+  load: Float!
+  muscleGroupDescription: String
+}
+
+type Exercise {
+  _id: ObjectId!
+  _partition: String!
+  calculationInPercent: Float!
+  category: ExerciseCategory
+  loadfactors: [LoadFactor]
+  name: String
+}
+
+type StrengthValue {
+  _id: ObjectId!
+  calculationMaximum: Float!
+  category: ObjectId
+  isMainLift: Boolean!
+  isTotalRelevant: Boolean!
+  oneRm: Float!
+  reps: Int!
+  weight: Float!
+}
+
+input LoadFactorUpdateInput {
+  muscleGroupDescription_unset: Boolean
+  _id: ObjectId
+  _id_unset: Boolean
+  load: Float
+  load_inc: Float
+  load_unset: Boolean
+  muscleGroupDescription: String
+}
+
+input ExerciseCategoryUpdateInput {
+  name: String
+  name_unset: Boolean
+  _id: ObjectId
+  _id_unset: Boolean
+  _partition: String
+  _partition_unset: Boolean
+}
+
+"The `DateTime` scalar type represents a DateTime. The DateTime is serialized as an RFC 3339 quoted string"
+scalar DateTime
+
+input WeekInsertInput {
+  _id: ObjectId
+  days: [TrainingsDayInsertInput]
+  number: Int!
+  isFinished: Boolean!
+}
+
+input TrainingsDayUpdateInput {
+  exerciseForDay_unset: Boolean
+  connectionId_unset: Boolean
+  number: Int
+  notes: String
+  number_inc: Int
+  fatigueRateDescription_unset: Boolean
+  isFinished_unset: Boolean
+  isFinished: Boolean
+  exerciseForDay: [ExerciseForDayUpdateInput]
+  number_unset: Boolean
+  _id: ObjectId
+  fatigueRateDescription: String
+  _id_unset: Boolean
+  notes_unset: Boolean
+  connectionId: ObjectId
+}
+
+input ExerciseCategoryInsertInput {
+  _id: ObjectId
+  _partition: String!
+  name: String
+}
+
+enum ZykluSortByInput {
+  _PARTITION_DESC
+  ZYKLUSTYPEDESCRIPTION_DESC
+  NAME_ASC
+  NAME_DESC
+  FINISHED_DESC
+  _ID_DESC
+  _PARTITION_ASC
+  STARTED_ASC
+  STARTED_DESC
+  FINISHED_ASC
+  _ID_ASC
+  ZYKLUSTYPEDESCRIPTION_ASC
+}
+
+type UpdateManyPayload {
+  matchedCount: Int!
+  modifiedCount: Int!
+}
+
+scalar ObjectId
+
+type Mutation {
+  deleteManyExerciseCategories(query: ExerciseCategoryQueryInput): DeleteManyPayload
+  deleteManyExercises(query: ExerciseQueryInput): DeleteManyPayload
+  deleteManyTrainees(query: TraineeQueryInput): DeleteManyPayload
+  deleteManyUsers(query: UserQueryInput): DeleteManyPayload
+  deleteManyZyklus(query: ZykluQueryInput): DeleteManyPayload
+  deleteOneExercise(query: ExerciseQueryInput!): Exercise
+  deleteOneExerciseCategory(query: ExerciseCategoryQueryInput!): ExerciseCategory
+  deleteOneTrainee(query: TraineeQueryInput!): Trainee
+  deleteOneUser(query: UserQueryInput!): User
+  deleteOneZyklu(query: ZykluQueryInput!): Zyklu
+  insertManyExerciseCategories(data: [ExerciseCategoryInsertInput!]!): InsertManyPayload
+  insertManyExercises(data: [ExerciseInsertInput!]!): InsertManyPayload
+  insertManyTrainees(data: [TraineeInsertInput!]!): InsertManyPayload
+  insertManyUsers(data: [UserInsertInput!]!): InsertManyPayload
+  insertManyZyklus(data: [ZykluInsertInput!]!): InsertManyPayload
+  insertOneExercise(data: ExerciseInsertInput!): Exercise
+  insertOneExerciseCategory(data: ExerciseCategoryInsertInput!): ExerciseCategory
+  insertOneTrainee(data: TraineeInsertInput!): Trainee
+  insertOneUser(data: UserInsertInput!): User
+  insertOneZyklu(data: ZykluInsertInput!): Zyklu
+  replaceOneExercise(query: ExerciseQueryInput data: ExerciseInsertInput!): Exercise
+  replaceOneExerciseCategory(query: ExerciseCategoryQueryInput data: ExerciseCategoryInsertInput!): ExerciseCategory
+  replaceOneTrainee(query: TraineeQueryInput data: TraineeInsertInput!): Trainee
+  replaceOneUser(data: UserInsertInput! query: UserQueryInput): User
+  replaceOneZyklu(query: ZykluQueryInput data: ZykluInsertInput!): Zyklu
+  updateManyExerciseCategories(query: ExerciseCategoryQueryInput set: ExerciseCategoryUpdateInput!): UpdateManyPayload
+  updateManyExercises(query: ExerciseQueryInput set: ExerciseUpdateInput!): UpdateManyPayload
+  updateManyTrainees(query: TraineeQueryInput set: TraineeUpdateInput!): UpdateManyPayload
+  updateManyUsers(set: UserUpdateInput! query: UserQueryInput): UpdateManyPayload
+  updateManyZyklus(set: ZykluUpdateInput! query: ZykluQueryInput): UpdateManyPayload
+  updateOneExercise(set: ExerciseUpdateInput! query: ExerciseQueryInput): Exercise
+  updateOneExerciseCategory(query: ExerciseCategoryQueryInput set: ExerciseCategoryUpdateInput!): ExerciseCategory
+  updateOneTrainee(query: TraineeQueryInput set: TraineeUpdateInput!): Trainee
+  updateOneUser(query: UserQueryInput set: UserUpdateInput!): User
+  updateOneZyklu(query: ZykluQueryInput set: ZykluUpdateInput!): Zyklu
+  upsertOneExercise(query: ExerciseQueryInput data: ExerciseInsertInput!): Exercise
+  upsertOneExerciseCategory(query: ExerciseCategoryQueryInput data: ExerciseCategoryInsertInput!): ExerciseCategory
+  upsertOneTrainee(query: TraineeQueryInput data: TraineeInsertInput!): Trainee
+  upsertOneUser(query: UserQueryInput data: UserInsertInput!): User
+  upsertOneZyklu(query: ZykluQueryInput data: ZykluInsertInput!): Zyklu
+}
+
+enum TraineeSortByInput {
+  _ID_ASC
+  _PARTITION_ASC
+  FIRSTNAME_ASC
+  STRESSDESCRIPTION_ASC
+  STRESSDESCRIPTION_DESC
+  FACTORFORWEIGHTRANGE_ASC
+  SLEEPDESCRIPTION_ASC
+  WEIGHTRANGECALCULATIONDESCRIPTION_DESC
+  _ID_DESC
+  _PARTITION_DESC
+  HEIGHT_ASC
+  GENDERDESCRIPTION_ASC
+  SLEEPDESCRIPTION_DESC
+  LASTNAME_DESC
+  GENDERDESCRIPTION_DESC
+  SAFETYFACTOR_DESC
+  FACTORFORWEIGHTRANGE_DESC
+  FIRSTNAME_DESC
+  CURRENTZYKLUS_ASC
+  DIETDESCRIPTION_DESC
+  AGE_DESC
+  BODYWEIGHT_DESC
+  EXPERIENCEDESCRIPTION_ASC
+  EXPERIENCEDESCRIPTION_DESC
+  WEIGHTRANGECALCULATIONDESCRIPTION_ASC
+  SAFETYFACTOR_ASC
+  LASTNAME_ASC
+  HEIGHT_DESC
+  DIETDESCRIPTION_ASC
+  ROUNDINGFACTOR_ASC
+  ROUNDINGFACTOR_DESC
+  CURRENTZYKLUS_DESC
+  BODYWEIGHT_ASC
+  REGENERATIONDESCRIPTION_ASC
+  REGENERATIONDESCRIPTION_DESC
+  AGE_ASC
+}
+
+input StrengthValueInsertInput {
+  isTotalRelevant: Boolean!
+  reps: Int!
+  weight: Float!
+  category: ObjectId
+  oneRm: Float!
+  calculationMaximum: Float!
+  _id: ObjectId
+  isMainLift: Boolean!
+}
+
+input ExerciseInsertInput {
+  _id: ObjectId
+  _partition: String!
+  name: String
+  loadfactors: [LoadFactorInsertInput]
+  calculationInPercent: Float!
+  category: ExerciseCategoryRelationInput
+}
+
+input ExerciseCategoryRelationInput {
+  create: ExerciseCategoryInsertInput
+  link: ObjectId
+}
+
+input ExerciseUpdateInput {
+  calculationInPercent_inc: Float
+  category_unset: Boolean
+  _partition: String
+  name_unset: Boolean
+  _id: ObjectId
+  loadfactors: [LoadFactorUpdateInput]
+  loadfactors_unset: Boolean
+  calculationInPercent_unset: Boolean
+  _id_unset: Boolean
+  _partition_unset: Boolean
+  name: String
+  calculationInPercent: Float
+  category: ExerciseCategoryRelationInput
+}

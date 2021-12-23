@@ -1,0 +1,28 @@
+﻿@page "/"
+@using System.Text.Json
+@inject SampleClient SampleClient
+@inject HttpClient _client
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+@code{
+    private string TraineeID = "";
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+             var result = await SampleClient.GetTrainee.ExecuteAsync("6196065a484ff46fbf803396");
+        var t = result.Data;
+        }catch(Exception e)
+        {
+            var t = e;
+        }
+       
+    }
+}
