@@ -9,20 +9,14 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
-@code{
-    private string TraineeID = "";
-
+@code {
 
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-             var result = await SampleClient.GetTrainee.ExecuteAsync("6196065a484ff46fbf803396");
+
+        var result = await SampleClient.GetTrainee.ExecuteAsync("6196065a484ff46fbf803396");
         var t = result.Data;
-        }catch(Exception e)
-        {
-            var t = e;
-        }
-       
+
+
     }
 }
