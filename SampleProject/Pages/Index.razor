@@ -13,10 +13,15 @@ Welcome to your new app.
 
     protected override async Task OnInitializedAsync()
     {
-
-        var result = await SampleClient.GetTrainee.ExecuteAsync("6196065a484ff46fbf803396");
-        var t = result.Data;
-
+        try{
+            var result = await SampleClient.GetTrainee.ExecuteAsync("8a2a3dea-77f4-471a-85f2-6054df81b270");
+            var t = result.Data;
+            var exceptionGetThrown = result.Data.Trainee;
+        }catch(Exception e)
+        {
+            Console.WriteLine(e);
+        }
+        
 
     }
 }

@@ -46,7 +46,6 @@ namespace Microsoft.Extensions.DependencyInjection
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::StrawberryShake.Serialization.ByteArraySerializer>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::StrawberryShake.Serialization.TimeSpanSerializer>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::StrawberryShake.Serialization.JsonSerializer>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer>(services, new global::StrawberryShake.Serialization.StringSerializer("ObjectId"));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializerResolver>(services, sp => new global::StrawberryShake.Serialization.SerializerResolver(global::System.Linq.Enumerable.Concat(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::System.Collections.Generic.IEnumerable<global::StrawberryShake.Serialization.ISerializer>>(parentServices), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::System.Collections.Generic.IEnumerable<global::StrawberryShake.Serialization.ISerializer>>(sp))));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory<global::SampleProject.Graphql.IGetTraineeResult>, global::SampleProject.Graphql.State.GetTraineeResultFactory>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultDataFactory<global::SampleProject.Graphql.IGetTraineeResult>>(sp));
@@ -155,12 +154,15 @@ namespace SampleProject.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.4.1.0")]
     public partial class GetTrainee_Trainee_Trainee : global::System.IEquatable<GetTrainee_Trainee_Trainee>, IGetTrainee_Trainee_Trainee
     {
-        public GetTrainee_Trainee_Trainee(global::System.String _id)
+        public GetTrainee_Trainee_Trainee(global::System.String _id, global::System.String? lastName)
         {
             this._id = _id;
+            LastName = lastName;
         }
 
         public global::System.String _id { get; }
+
+        public global::System.String? LastName { get; }
 
         public virtual global::System.Boolean Equals(GetTrainee_Trainee_Trainee? other)
         {
@@ -179,7 +181,7 @@ namespace SampleProject.Graphql
                 return false;
             }
 
-            return (_id.Equals(other._id));
+            return (_id.Equals(other._id)) && ((LastName is null && other.LastName is null) || LastName != null && LastName.Equals(other.LastName));
         }
 
         public override global::System.Boolean Equals(global::System.Object? obj)
@@ -208,6 +210,11 @@ namespace SampleProject.Graphql
             {
                 int hash = 5;
                 hash ^= 397 * _id.GetHashCode();
+                if (LastName != null)
+                {
+                    hash ^= 397 * LastName.GetHashCode();
+                }
+
                 return hash;
             }
         }
@@ -220,14 +227,11 @@ namespace SampleProject.Graphql
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.4.1.0")]
-    public interface ITraineeSample
+    public interface IGetTrainee_Trainee
     {
         public global::System.String _id { get; }
-    }
 
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.4.1.0")]
-    public interface IGetTrainee_Trainee : ITraineeSample
-    {
+        public global::System.String? LastName { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.4.1.0")]
@@ -238,15 +242,12 @@ namespace SampleProject.Graphql
     /// <summary>
     /// Represents the operation service of the GetTrainee GraphQL operation
     /// <code>
-    /// query GetTrainee($traineeId: ObjectId!) {
+    /// query GetTrainee($traineeId: String!) {
     ///   trainee(query: { _id: $traineeId }) {
     ///     __typename
-    ///     ... TraineeSample
+    ///     _id
+    ///     lastName
     ///   }
-    /// }
-    /// 
-    /// fragment TraineeSample on Trainee {
-    ///   _id
     /// }
     /// </code>
     /// </summary>
@@ -259,8 +260,8 @@ namespace SampleProject.Graphql
 
         public static GetTraineeQueryDocument Instance { get; } = new GetTraineeQueryDocument();
         public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Query;
-        public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x71, 0x75, 0x65, 0x72, 0x79, 0x20, 0x47, 0x65, 0x74, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x65, 0x65, 0x28, 0x24, 0x74, 0x72, 0x61, 0x69, 0x6e, 0x65, 0x65, 0x49, 0x64, 0x3a, 0x20, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x21, 0x29, 0x20, 0x7b, 0x20, 0x74, 0x72, 0x61, 0x69, 0x6e, 0x65, 0x65, 0x28, 0x71, 0x75, 0x65, 0x72, 0x79, 0x3a, 0x20, 0x7b, 0x20, 0x5f, 0x69, 0x64, 0x3a, 0x20, 0x24, 0x74, 0x72, 0x61, 0x69, 0x6e, 0x65, 0x65, 0x49, 0x64, 0x20, 0x7d, 0x29, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x65, 0x65, 0x53, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x66, 0x72, 0x61, 0x67, 0x6d, 0x65, 0x6e, 0x74, 0x20, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x65, 0x65, 0x53, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x20, 0x6f, 0x6e, 0x20, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x65, 0x65, 0x20, 0x7b, 0x20, 0x5f, 0x69, 0x64, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "f9313b151d0d1b66362e9e1fe6f6abec");
+        public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x71, 0x75, 0x65, 0x72, 0x79, 0x20, 0x47, 0x65, 0x74, 0x54, 0x72, 0x61, 0x69, 0x6e, 0x65, 0x65, 0x28, 0x24, 0x74, 0x72, 0x61, 0x69, 0x6e, 0x65, 0x65, 0x49, 0x64, 0x3a, 0x20, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x21, 0x29, 0x20, 0x7b, 0x20, 0x74, 0x72, 0x61, 0x69, 0x6e, 0x65, 0x65, 0x28, 0x71, 0x75, 0x65, 0x72, 0x79, 0x3a, 0x20, 0x7b, 0x20, 0x5f, 0x69, 0x64, 0x3a, 0x20, 0x24, 0x74, 0x72, 0x61, 0x69, 0x6e, 0x65, 0x65, 0x49, 0x64, 0x20, 0x7d, 0x29, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x5f, 0x69, 0x64, 0x20, 0x6c, 0x61, 0x73, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x20, 0x7d, 0x20, 0x7d};
+        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "42d363c018801b659952432502688b66");
         public override global::System.String ToString()
         {
 #if NETSTANDARD2_0
@@ -274,15 +275,12 @@ namespace SampleProject.Graphql
     /// <summary>
     /// Represents the operation service of the GetTrainee GraphQL operation
     /// <code>
-    /// query GetTrainee($traineeId: ObjectId!) {
+    /// query GetTrainee($traineeId: String!) {
     ///   trainee(query: { _id: $traineeId }) {
     ///     __typename
-    ///     ... TraineeSample
+    ///     _id
+    ///     lastName
     ///   }
-    /// }
-    /// 
-    /// fragment TraineeSample on Trainee {
-    ///   _id
     /// }
     /// </code>
     /// </summary>
@@ -290,11 +288,11 @@ namespace SampleProject.Graphql
     public partial class GetTraineeQuery : global::SampleProject.Graphql.IGetTraineeQuery
     {
         private readonly global::StrawberryShake.IOperationExecutor<IGetTraineeResult> _operationExecutor;
-        private readonly global::StrawberryShake.Serialization.IInputValueFormatter _objectIdFormatter;
+        private readonly global::StrawberryShake.Serialization.IInputValueFormatter _stringFormatter;
         public GetTraineeQuery(global::StrawberryShake.IOperationExecutor<IGetTraineeResult> operationExecutor, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
         {
             _operationExecutor = operationExecutor ?? throw new global::System.ArgumentNullException(nameof(operationExecutor));
-            _objectIdFormatter = serializerResolver.GetInputValueFormatter("ObjectId");
+            _stringFormatter = serializerResolver.GetInputValueFormatter("String");
         }
 
         global::System.Type global::StrawberryShake.IOperationRequestFactory.ResultType => typeof(IGetTraineeResult);
@@ -329,7 +327,7 @@ namespace SampleProject.Graphql
                 throw new global::System.ArgumentNullException(nameof(value));
             }
 
-            return _objectIdFormatter.Format(value);
+            return _stringFormatter.Format(value);
         }
 
         global::StrawberryShake.OperationRequest global::StrawberryShake.IOperationRequestFactory.Create(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
@@ -341,15 +339,12 @@ namespace SampleProject.Graphql
     /// <summary>
     /// Represents the operation service of the GetTrainee GraphQL operation
     /// <code>
-    /// query GetTrainee($traineeId: ObjectId!) {
+    /// query GetTrainee($traineeId: String!) {
     ///   trainee(query: { _id: $traineeId }) {
     ///     __typename
-    ///     ... TraineeSample
+    ///     _id
+    ///     lastName
     ///   }
-    /// }
-    /// 
-    /// fragment TraineeSample on Trainee {
-    ///   _id
     /// }
     /// </code>
     /// </summary>
@@ -423,7 +418,7 @@ namespace SampleProject.Graphql.State
             IGetTrainee_Trainee returnValue = default !;
             if (data?.__typename.Equals("Trainee", global::System.StringComparison.Ordinal) ?? false)
             {
-                returnValue = new GetTrainee_Trainee_Trainee(data._id ?? throw new global::System.ArgumentNullException());
+                returnValue = new GetTrainee_Trainee_Trainee(data._id ?? throw new global::System.ArgumentNullException(), data.LastName);
             }
             else
             {
@@ -467,13 +462,13 @@ namespace SampleProject.Graphql.State
         private readonly global::StrawberryShake.IEntityStore _entityStore;
         private readonly global::StrawberryShake.IEntityIdSerializer _idSerializer;
         private readonly global::StrawberryShake.IOperationResultDataFactory<global::SampleProject.Graphql.IGetTraineeResult> _resultDataFactory;
-        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.String> _objectIdParser;
+        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.String> _stringParser;
         public GetTraineeBuilder(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityIdSerializer idSerializer, global::StrawberryShake.IOperationResultDataFactory<global::SampleProject.Graphql.IGetTraineeResult> resultDataFactory, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
         {
             _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
             _idSerializer = idSerializer ?? throw new global::System.ArgumentNullException(nameof(idSerializer));
             _resultDataFactory = resultDataFactory ?? throw new global::System.ArgumentNullException(nameof(resultDataFactory));
-            _objectIdParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.String>("ObjectId") ?? throw new global::System.ArgumentException("No serializer for type `ObjectId` found.");
+            _stringParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.String>("String") ?? throw new global::System.ArgumentException("No serializer for type `String` found.");
         }
 
         public global::StrawberryShake.IOperationResult<IGetTraineeResult> Build(global::StrawberryShake.Response<global::System.Text.Json.JsonDocument> response)
@@ -532,7 +527,7 @@ namespace SampleProject.Graphql.State
             var typename = obj.Value.GetProperty("__typename").GetString();
             if (typename?.Equals("Trainee", global::System.StringComparison.Ordinal) ?? false)
             {
-                return new global::SampleProject.Graphql.State.TraineeData(typename, _id: DeserializeNonNullableString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "_id")));
+                return new global::SampleProject.Graphql.State.TraineeData(typename, _id: DeserializeNonNullableString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "_id")), lastName: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "lastName")));
             }
 
             throw new global::System.NotSupportedException();
@@ -545,22 +540,35 @@ namespace SampleProject.Graphql.State
                 throw new global::System.ArgumentNullException();
             }
 
-            return _objectIdParser.Parse(obj.Value.GetString()!);
+            return _stringParser.Parse(obj.Value.GetString()!);
+        }
+
+        private global::System.String? DeserializeString(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            return _stringParser.Parse(obj.Value.GetString()!);
         }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.4.1.0")]
     public partial class TraineeData
     {
-        public TraineeData(global::System.String __typename, global::System.String? _id = default !)
+        public TraineeData(global::System.String __typename, global::System.String? _id = default !, global::System.String? lastName = default !)
         {
             this.__typename = __typename ?? throw new global::System.ArgumentNullException(nameof(__typename));
             _id = _id;
+            LastName = lastName;
         }
 
         public global::System.String __typename { get; }
 
         public global::System.String? _id { get; }
+
+        public global::System.String? LastName { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.4.1.0")]

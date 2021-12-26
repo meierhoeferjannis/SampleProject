@@ -5,7 +5,7 @@
     "strawberryShake": {
       "name": "SampleClient",
       "namespace": "SampleProject.Graphql",
-      "url": "https://eu-central-1.aws.realm.mongodb.com/api/client/v2.0/app/kiloforkilo-jcdvl/graphql",
+      "url": "https://eu-central-1.aws.realm.mongodb.com/api/client/v2.0/app/kiloforkilodev-mtjtu/graphql",
       "dependencyInjection": true,
       "strictSchemaValidation": true,
       "hashAlgorithm": "md5",

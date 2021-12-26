@@ -1,10 +1,7 @@
-﻿query GetTrainee($traineeId: ObjectId!){
+﻿query GetTrainee($traineeId: String!){
    trainee(query: {_id: $traineeId}){
-       ... TraineeSample
+       _id
+       lastName
    }
 }
 
-fragment TraineeSample on Trainee{
-    _id
-    
-}
