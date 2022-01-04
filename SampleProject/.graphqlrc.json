@@ -5,7 +5,7 @@
     "strawberryShake": {
       "name": "SampleClient",
       "namespace": "SampleProject.Graphql",
-      "url": "https://eu-central-1.aws.realm.mongodb.com/api/client/v2.0/app/kiloforkilodev-mtjtu/graphql",
+      "url": "https://eu-central-1.aws.realm.mongodb.com/api/client/v2.0/app/kiloforkilodev-pnoum/graphql",
       "dependencyInjection": true,
       "strictSchemaValidation": true,
       "hashAlgorithm": "md5",
@@ -13,7 +13,7 @@
       "requestStrategy": "Default",
       "outputDirectoryName": "Generated",
       "noStore": false,
-      "emitGeneratedCode": true,
+      "emitGeneratedCode": false,
       "razorComponents": false,
       "records": {
         "inputs": false,

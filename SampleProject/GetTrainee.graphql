@@ -1,5 +1,5 @@
-﻿query GetTrainee($traineeId: String!){
-   trainee(query: {_id: $traineeId}){
+﻿query GetTrainee{
+   trainee{
        _id
        lastName
    }
